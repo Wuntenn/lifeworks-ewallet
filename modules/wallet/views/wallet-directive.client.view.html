@@ -1,22 +1,54 @@
 <div>
   <div class="col-md-8 page-header list-group-item">
-    <h1>Total: $110.00</h1>
+    <h1>Total: {{ vm.total | number }}</h1>
   </div>
 
   <div class="col-md-8 input-group">
     <span class="input-group-addon">$</span>
-    <input type="text" class="form-control" placeholder="Enter amount" aria-describedby="basic-addon2">
+    <input
+      type="text"
+      class="form-control"
+      ng-model="vm.transactionAmount"
+      placeholder="Enter amount"
+      aria-describedby="transaction amount"
+    >
 
     <span class="input-group-btn">
-      <button type="button" class="btn btn-success">Add</button>
-      <button type="button" class="btn btn-danger">Remove</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        ng-click="vm.appendTransaction(vm.transactionAmount, 'deposit')"
+      >
+        Add
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        ng-click="vm.appendTransaction(vm.transactionAmount, 'withdrawl')"
+      >
+        Remove
+      </button>
     </span>
   </div>
 
-  <h4 class="col-md-8">Wallet statement:</h4>
 
+  {{ vm }}
+  <!--<span>vm.total: {{ vm.total }}</span> - <span>vm.transactions: {{ vm.transactions }}</span>-->
+
+  <h4 class="col-md-8">Wallet statement:</h4>
+  <table class="table table-striped table-hover">
+    <tr ng-repeat="transaction in vm.transactions">
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.type }}</td>
+      <td>{{ transaction.date }}</td>
+      <td>{{ transaction.subTotal }}</td>
+    </tr>
+  </table>
+
+  <!--
   <ul class="col-md-8 list-group">
-    <li class="list-group-item list-group-item-success">+ $100</li>
+    <li ng-repeat="transaction in vm.transactions" class="list-group-item list-group-item-success">+ $100</li>
     <li class="list-group-item list-group-item-danger">- $200</li>
   </ul>
+  -->
 </div>
