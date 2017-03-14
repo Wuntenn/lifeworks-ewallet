@@ -20,7 +20,7 @@ Kind regards,
 
 Daron Jones
 
-Build steps:
+##Installation:
 
 ```
 git clone git@github.com:Wuntenn/lifeworks-ewallet.git
