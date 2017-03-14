@@ -2,7 +2,9 @@
 I think I was a bit too ambitious with the setup,
 
 I realised that I don't actually haven a starting point for small projects. I spent most of the time
-during this test on the unmarked/unseen area and punishing myself with errors.
+during this test on the unmarked/unseen areas than the front-end.
+
+I've enjoyed punishing myself with unseen before errors :D
 
 I had intended to go above and beyond, however I don't have time to:
 
