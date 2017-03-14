@@ -19,3 +19,14 @@ I welcome any feedback.
 Kind regards,
 
 Daron Jones
+
+Build steps:
+
+```
+git clone git@github.com:Wuntenn/lifeworks-ewallet.git
+npm install && bower install
+node server
+```
+Navigate to `http://localhost:3000`
+
+Enjoy!
