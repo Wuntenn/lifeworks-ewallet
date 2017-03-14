@@ -24,7 +24,7 @@ Build steps:
 
 ```
 git clone git@github.com:Wuntenn/lifeworks-ewallet.git
-npm install && bower install
+cd lifeworks-ewallet && npm install && bower install
 node server
 ```
 Navigate to `http://localhost:3000`
