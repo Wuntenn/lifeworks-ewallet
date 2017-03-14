@@ -15,5 +15,5 @@ function globalCtrl($rootScope) {
   }
 
   console.log('yo from global', vm);
-  vm.test = 'hey this is a test';
+  //vm.test = 'hey this is a test';
 }

@@ -1,10 +1,10 @@
-<div>
+<form>
   <div class="col-md-8 page-header list-group-item">
-    <h1>Total: {{ vm.total | number }}</h1>
+    <h1>Total: {{ vm.total | currency:"£" }}</h1>
   </div>
 
   <div class="col-md-8 input-group">
-    <span class="input-group-addon">$</span>
+    <span class="input-group-addon">£</span>
     <input
       type="text"
       class="form-control"
@@ -12,7 +12,7 @@
       placeholder="Enter amount"
       aria-describedby="transaction amount"
     >
-
+    <span ng-show="form.size.$error.positive">The value must be positive!</span>
     <span class="input-group-btn">
       <button
         type="button"
@@ -31,24 +31,20 @@
     </span>
   </div>
 
-
-  {{ vm }}
-  <!--<span>vm.total: {{ vm.total }}</span> - <span>vm.transactions: {{ vm.transactions }}</span>-->
-
   <h4 class="col-md-8">Wallet statement:</h4>
   <table class="table table-striped table-hover">
-    <tr ng-repeat="transaction in vm.transactions">
-      <td>{{ transaction.amount }}</td>
-      <td>{{ transaction.type }}</td>
-      <td>{{ transaction.date }}</td>
-      <td>{{ transaction.subTotal }}</td>
+    <thead>
+      <th id="date">Date</th>
+      <th id="type">Type</th>
+      <th id="amount">Amount</th>
+      <th id="Sub-total<">Sub-total</th>
+    </thead>
+    <tr ng-repeat="transaction in vm.transactions | orderBy : transaction.date : true">
+      <td headers="date">{{ transaction.date | date:'medium' }}</td>
+      <td headers="type">{{ transaction.type }}</td>
+      <td headers="amount">{{ transaction.amount | currency:"£" }}</td>
+      <td headers="sub-total">{{ transaction.subTotal | currency:"£" }}</td>
     </tr>
   </table>
 
-  <!--
-  <ul class="col-md-8 list-group">
-    <li ng-repeat="transaction in vm.transactions" class="list-group-item list-group-item-success">+ $100</li>
-    <li class="list-group-item list-group-item-danger">- $200</li>
-  </ul>
-  -->
-</div>
+</form>
