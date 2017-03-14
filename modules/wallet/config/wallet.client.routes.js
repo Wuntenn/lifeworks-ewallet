@@ -2,21 +2,22 @@ angular
   .module('lwWallet')
   .config(walletRoute);
 
-walletRoute.$inject = ['$stateProvider'];
-function walletRoute($stateProvider) {
+walletRoute.$inject = ['$stateProvider', '$urlRouterProvider'];
+function walletRoute($stateProvider, $urlRouterProvider) {
   console.log('hello wallet client routes');
+
+  $urlRouterProvider.otherwise('/wallet');
 
   $stateProvider
     .state('wallet', {
       url: '/wallet',
 			controller: 'lwWalletCtrl',
-      template: '<span>Yo yo yo</span>',
-      /*
       views: {
         '@': {
-			    template: '<div>Hey wallet route</div>',
+			    templateUrl: 'modules/wallet/views/wallet.client.view.html'
         }
       }
-      */
     });
+
+  console.log('State is: ', $stateProvider);
 }
